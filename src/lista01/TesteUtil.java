@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2024 Thiago José Amaral Oliveira da Silva
+ * Licensed under the MIT License.
+ */
 package lista01;
 
 public class TesteUtil {
