@@ -1,6 +1,7 @@
 /*
  * Copyright (c) 2024 Thiago José Amaral Oliveira da Silva
  * Licensed under the MIT License.
+ * Consulte o arquivo LICENSE para obter mais informações.
  */
 package lista01;
 
