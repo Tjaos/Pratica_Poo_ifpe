@@ -11,7 +11,7 @@ public class Util {
      * @return soma dos inteiros
      */
 
-    public static int Somar(int a, int b){
+    public static int somar(int a, int b){
 
         return (a + b);
     }
@@ -27,8 +27,8 @@ public class Util {
      * @return valor absoluto da soma dos inteiros
      */
 
-    public static int SomarPositivo(int a, int b){
-        return Math.abs(Somar(a, b));
+    public static int somarPositivo(int a, int b){
+        return Math.abs(somar(a, b));
     }
 
 
@@ -41,7 +41,7 @@ public class Util {
      * @return subtração do primeiro pelo segundo
      */
 
-    public static double Subtrair(double a, double b){
+    public static double subtrair(double a, double b){
         return (a - b);
     }
 
@@ -55,8 +55,8 @@ public class Util {
      * @return valor absoluto da subtração do primeiro pelo segundo
      */
 
-    public static double SubtrairPositivo(double a, double b){
-        return Math.abs(Subtrair(a, b));
+    public static double subtrairPositivo(double a, double b){
+        return Math.abs(subtrair(a, b));
     }
 
 
@@ -69,7 +69,7 @@ public class Util {
      * @return resto da divisão do primeiro pelo segundo
      */
 
-    public static int ObterResto(int a, int b){
+    public static int obterResto(int a, int b){
         return (a % b);
     }
 
@@ -87,7 +87,7 @@ public class Util {
      * @param nota Um double aleatório
      * @return A nota double ajustada de acordo com as condicionais
      */
-    public static double AjustarNota(double nota){
+    public static double ajustarNota(double nota){
         double resultado;
         if(nota < 0){
             resultado = 0;
@@ -114,11 +114,11 @@ public class Util {
      * @return A média aritimetica dos tres double após seus Ajustes
      */
 
-    public static double CalcularMedia(double a, double b, double c){
+    public static double calcularMedia(double a, double b, double c){
 
-        a = AjustarNota(a);
-        b = AjustarNota(b);
-        c = AjustarNota(c);
+        a = ajustarNota(a);
+        b = ajustarNota(b);
+        c = ajustarNota(c);
 
         return ((a+b+c) / 3);
     }
@@ -129,12 +129,53 @@ public class Util {
     - EXAME FINAL : caso a média seja maior ou igual a 2.0 e menor que 7.0
     - REPROVADO : caso contrário
     */
-    
+    /**
+     * 
+     * @param a primeiro double
+     * @param b segundo double
+     * @param c terceiro double
+     * @return Uma String informando se foi APROVADO, REPROVADO ou EXAME FINAL
+     */
+    public static String verificarAprovacao(double a, double b, double c){
+
+        String resultado = "";
+        double media = calcularMedia(a, b, c);
+
+        if(media >= 7.0){
+            resultado = "APROVADO";
+        }else if(media >= 2 && media < 7){
+            resultado = "EXAME FINAL";
+        }else{
+            resultado = "REPROVADO";
+        }
+
+        return resultado;
+    }
+
     /*9. verificarAprovacaoCompleta: recebe três notas (double) e um percentual de frequência (double) e
     retorna:
     - REPROVADO POR FALTA : caso o percentual de frequência seja menor que 0.75
     - o resultado do método do item 8 : caso contrário 
     */
+    /**
+     * 
+     * @param a primeiro double
+     * @param b segundo double
+     * @param c terceiro double
+     * @param frequencia quarto double
+     * @return String informando se foi REPROVADO POR FALTA ou retorna o resultado do item 8.
+     */
+    public static String verificarAprovacaoCompleta(double a, double b, double c, double frequencia){
+        String resultado = ""; 
+        if(frequencia < 0.75){
+            resultado = "REPROVADO POR FALTA";
+        }else{
+            resultado = verificarAprovacao(a, b, c);
+        }
+
+
+        return resultado;
+    }
 
 
 
